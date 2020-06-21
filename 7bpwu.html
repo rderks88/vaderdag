@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Voorgerecht</title>
+    <title>Tweede gerecht</title>
     <style>
         * {
             box-sizing: border-box;
@@ -37,7 +37,7 @@
             -webkit-box-align: center;
             -ms-flex-align: center;
             align-items: center;
-            background-color: #ffd54f;
+            background-color: #b94fe0;
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
@@ -63,12 +63,12 @@
 <body>
 
 <div class="container">
-    <h1>Countdown to my birthday:</h1>
+    <h1>Countdown tot het tweede gerecht:</h1>
     <ul>
-        <li><span id="days"></span>days</li>
-        <li><span id="hours"></span>Hours</li>
-        <li><span id="minutes"></span>Minutes</li>
-        <li><span id="seconds"></span>Seconds</li>
+        <li><span id="days"></span>Dagen</li>
+        <li><span id="hours"></span>Uren</li>
+        <li><span id="minutes"></span>Minuten</li>
+        <li><span id="seconds"></span>Seconde</li>
     </ul>
 </div>
 
@@ -80,7 +80,7 @@
         hour = minute * 60,
         day = hour * 24;
 
-    let countDown = new Date('Sep 30, 2020 00:00:00').getTime(),
+    let countDown = new Date('Jul 19, 2020 18:30:00').getTime(),
         x = setInterval(function() {
 
             let now = new Date().getTime(),
