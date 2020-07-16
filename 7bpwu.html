@@ -58,11 +58,26 @@
             padding: 0.5rem;
             text-align: center;
         }
+
+        #course{
+            max-width: 600px;
+        }
+        #course img{
+            border-radius: 80px;
+            margin-bottom: 40px;
+        }
+        #course h1{
+            margin-bottom: 30px;
+        }
+        #course p{
+            margin-bottom: 10px;
+            line-height: 25px;
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
+<div id="timer" class="container">
     <h1>Countdown tot het tweede gerecht:</h1>
     <ul>
         <li><span id="days"></span>Dagen</li>
@@ -72,15 +87,32 @@
     </ul>
 </div>
 
+<div id="course" class="container">
+    <img src="https://hips.hearstapps.com/digitalspyuk.cdnds.net/16/13/1459529985-friends-mm-noodle-soup.gif?resize=768:*" width="450" alt="">
+    <h1>“alles loopt in de”-soep</h1>
+    <p>Soms heb je van die dagen. Verslapen, dus snel je koffers pakken want je gaat een weekje weg met de familie. Ohja, ik moest ook nog een gerechtje maken. Ik ga lekker soep maken. Dat is altijd goed, en lekker warm! Ideaal gerecht voor Mariken. Maar er zijn geen tomaten in huis. Je hebt nog wat room voor een lekkere aspergesoep, maarja mijn schoonbroer ineens lactose intolerant. Dan maar naar de supermarkt…. Arggg… portemonnee vergeten. Nou dan is er maar één oplossing. Ik maak “alles loopt in de soep”-soep.
+        Dit is natuurlijk een grapje! Ik maak voor jullie een heerlijke ambachtelijke verrassingssoep. Kunnen jullie proeven wat het is? Het ziet er in ieder geval heerlijk uit! Eet smakelijk!</p>
+    <p><i>Liefs, Mariken</i></p>
+</div>
+
 </body>
 
 <script>
+
+    var dateString = 'Jul 19, 2020 17:15:00';
+
+    if(!!window.location.search || new Date() > new Date(dateString)){
+        document.querySelector('#timer').style.display = 'none';
+    }else{
+        document.querySelector('#course').style.display = 'none';
+    }
+
     const second = 1000,
         minute = second * 60,
         hour = minute * 60,
         day = hour * 24;
 
-    let countDown = new Date('Jul 19, 2020 18:30:00').getTime(),
+    let countDown = new Date(dateString).getTime(),
         x = setInterval(function() {
 
             let now = new Date().getTime(),

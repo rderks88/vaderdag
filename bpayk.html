@@ -58,11 +58,26 @@
             padding: 0.5rem;
             text-align: center;
         }
+
+        #course{
+            max-width: 650px;
+        }
+        #course img{
+            border-radius: 60px;
+            margin-bottom: 40px;
+        }
+        #course h1{
+            margin-bottom: 30px;
+        }
+        #course p{
+            margin-bottom: 10px;
+            line-height: 25px;
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
+<div id="timer" class="container">
     <h1>Countdown tot het derde gerecht:</h1>
     <ul>
         <li><span id="days"></span>Dagen</li>
@@ -72,15 +87,32 @@
     </ul>
 </div>
 
+<div id="course" class="container">
+    <img src="https://i.pinimg.com/originals/d4/aa/64/d4aa649210056a1f8d59f39e6bdfbfe9.gif" alt="">
+    <h1>Verfrissend tussen<strike>kind</strike>gerecht: "spoom"</h1>
+    <p>Het is geen toeval dat dit gerecht mij toebedeeld is. Na jullie eerste kind en voor je derde kind hadden jullie gewoon behoefte aan een verfrissend tussen<strike>gerecht</strike> kind! Heel begrijpelijk ;) Een frisse wind. Eentje die gewoon onder de tafel gaat zitten als hij het lastig heeft, daar heb je dus geen last van en hij ligt niet zwaar op de maag. Laat dit tussen<strike>kind</strike>gerecht je goed smaken.
+    <br><br>Pap, als middelste kind wil ik je laten weten dat je een voortreffelijke vader bent voor ons en nu zeker ook voor onze aanhang. Heel erg bedankt dat je er altijd bent.</p>
+    <p><i>Liefs, Rob</i></p>
+</div>
+
 </body>
 
 <script>
+
+    var dateString = 'Jul 19, 2020 18:00:00';
+
+    if(!!window.location.search || new Date() > new Date(dateString)){
+        document.querySelector('#timer').style.display = 'none';
+    }else{
+        document.querySelector('#course').style.display = 'none';
+    }
+
     const second = 1000,
         minute = second * 60,
         hour = minute * 60,
         day = hour * 24;
 
-    let countDown = new Date('Jul 19, 2020 19:00:00').getTime(),
+    let countDown = new Date(dateString).getTime(),
         x = setInterval(function() {
 
             let now = new Date().getTime(),

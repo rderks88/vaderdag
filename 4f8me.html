@@ -58,11 +58,26 @@
             padding: 0.5rem;
             text-align: center;
         }
+
+        #course{
+            max-width: 600px;
+        }
+        #course img{
+            border-radius: 80px;
+            margin-bottom: 40px;
+        }
+        #course h1{
+            margin-bottom: 30px;
+        }
+        #course p{
+            margin-bottom: 10px;
+            line-height: 25px;
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
+<div id="timer" class="container">
     <h1>Countdown tot het eerste gerecht:</h1>
     <ul>
         <li><span id="days"></span>Dagen</li>
@@ -72,15 +87,31 @@
     </ul>
 </div>
 
+<div id="course" class="container">
+    <img src="https://media1.giphy.com/media/fW5qirp4Nm9bC2qAHy/giphy.gif?cid=ecf05e47254ba43d9940db261b47080038b97dd2a118c261&rid=giphy.gif" alt="">
+    <h1>Gevulde mini-paprika</h1>
+    <p>Als je kookt voor Henk Derks is het toch een uitdaging om iets origineels op tafel te zetten. Hij brengt zó veel tijd in de keuken door, dat vrijwel ieder gerecht zijn handen (& maag) al heeft gepasseerd. Als kleinste van de drie, wilde ik ook het kleinste gerechtje maken. Dan hebben we nog vegetarisch, zwanger én lactose vrij. Maar van restricties wordt men creatief! Gewoon lekkere producten bij elkaar zoeken, dan komt het vanzelf goed. Ik heb geen recept gebruikt en geen tijd genomen om het te proef bakken. Ik heb wel plaatjes bekeken en in gedachte voorgeproefd. Dat smaakte goed! Durf jij het aan om de 3d-versie te proeven? En als het niet lekker is, is het gelukkig maar het kleinste gerechtje!</p>
+    <p><i>Liefs, Anke</i></p>
+</div>
+
 </body>
 
 <script>
+
+    var dateString = 'Jul 19, 2020 16:30:00';
+
+    if(!!window.location.search || new Date() > new Date(dateString)){
+        document.querySelector('#timer').style.display = 'none';
+    }else{
+        document.querySelector('#course').style.display = 'none';
+    }
+
     const second = 1000,
         minute = second * 60,
         hour = minute * 60,
         day = hour * 24;
 
-    let countDown = new Date('Jul 19, 2020 18:00:00').getTime(),
+    let countDown = new Date(dateString).getTime(),
         x = setInterval(function() {
 
             let now = new Date().getTime(),

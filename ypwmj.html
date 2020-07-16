@@ -58,11 +58,26 @@
             padding: 0.5rem;
             text-align: center;
         }
+
+        #course{
+            max-width: 600px;
+        }
+        #course img{
+            border-radius: 80px;
+            margin-bottom: 40px;
+        }
+        #course h1{
+            margin-bottom: 30px;
+        }
+        #course p{
+            margin-bottom: 10px;
+            line-height: 25px;
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
+<div id="timer" class="container">
     <h1>Countdown tot het zesde gerecht:</h1>
     <ul>
         <li><span id="days"></span>Dagen</li>
@@ -72,15 +87,31 @@
     </ul>
 </div>
 
+<div id="course" class="container">
+    <img src="https://media1.giphy.com/media/Lf5ijIR8zjzri/giphy.gif?cid=ecf05e47e80ec22787b66f15acabafa3a0a4d65080a56db1&rid=giphy.gif" alt="">
+    <h1>It's nacho-time!</h1>
+    <p>Dit gerecht is eigenlijk geen gerecht zouden sommigen zeggen (toch Koen?). Hij vindt het enkel chips. Maar nacho’s zijn veel meer dan dat: het is de perfecte combinatie tussen romig en knapperig, tussen fris en pittig, tussen warm en koud. Het is een gezelschapsgerecht, soms een beetje vreemd in de ogen van Derksen maar verdomde lekker. Daarom dit gerecht bij de borrel, samen met dit leuke gezelschap. Dit gezelschap dat ik al meer dan 12 jaar ken, waar de deur elk moment van de dag voor je open staat. Net als de combinaties bij nacho’s, hebben we samen de juiste balans gevonden tussen rust en energie, tussen humor en goede gesprekken. Laten we proosten op deze soms vreemde maar uitermate goede combinatie van leuke mensen!</p>
+    <p><i>Liefs, Thijs</i></p>
+</div>
+
 </body>
 
 <script>
+
+    var dateString = 'Jul 19, 2020 21:00:00';
+
+    if(!!window.location.search || new Date() > new Date(dateString)){
+        document.querySelector('#timer').style.display = 'none';
+    }else{
+        document.querySelector('#course').style.display = 'none';
+    }
+
     const second = 1000,
         minute = second * 60,
         hour = minute * 60,
         day = hour * 24;
 
-    let countDown = new Date('Jul 19, 2020 21:00:00').getTime(),
+    let countDown = new Date(dateString).getTime(),
         x = setInterval(function() {
 
             let now = new Date().getTime(),

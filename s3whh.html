@@ -58,11 +58,26 @@
             padding: 0.5rem;
             text-align: center;
         }
+
+        #course{
+            max-width: 600px;
+        }
+        #course img{
+            border-radius: 80px;
+            margin-bottom: 40px;
+        }
+        #course h1{
+            margin-bottom: 30px;
+        }
+        #course p{
+            margin-bottom: 10px;
+            line-height: 25px;
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
+<div id="timer" class="container">
     <h1>Countdown tot het vijfde gerecht:</h1>
     <ul>
         <li><span id="days"></span>Dagen</li>
@@ -72,15 +87,31 @@
     </ul>
 </div>
 
+<div id="course" class="container">
+    <img src="https://media.giphy.com/media/svCK1QQtolnXy/giphy.gif" alt="">
+    <h1>Viva la chocolate</h1>
+    <p>How wonderful that we could first connect as schoonvader en schoondochter over a chocolate dessert board at Wicked Wines. Instant common ground that we could build on. Every bite of chocolate, every bit of laughter brought us closer together. And here we are now - a year and a half later, and I couldn’t be luckier to have you in my life as father figure. You have been a beacon of strength and security for me in this time and I have enjoyed every second revelling in sweetness with you. And of course - it is only fitting that I would be preparing our fifth course. The most decadent, goeye, chocolate fondant you could dream of. With a crispy exterior and a soft, warm, molten interior (just like you).</p>
+    <p><i>Liefs, Andria</i></p>
+</div>
+
 </body>
 
 <script>
+
+    var dateString = 'Jul 19, 2020 20:00:00';
+
+    if(!!window.location.search || new Date() > new Date(dateString)){
+        document.querySelector('#timer').style.display = 'none';
+    }else{
+        document.querySelector('#course').style.display = 'none';
+    }
+
     const second = 1000,
         minute = second * 60,
         hour = minute * 60,
         day = hour * 24;
 
-    let countDown = new Date('Jul 19, 2020 20:30:00').getTime(),
+    let countDown = new Date(dateString).getTime(),
         x = setInterval(function() {
 
             let now = new Date().getTime(),

@@ -58,11 +58,26 @@
             padding: 0.5rem;
             text-align: center;
         }
+
+        #course{
+            max-width: 600px;
+        }
+        #course img{
+            border-radius: 80px;
+            margin-bottom: 40px;
+        }
+        #course h1{
+            margin-bottom: 30px;
+        }
+        #course p{
+            margin-bottom: 10px;
+            line-height: 25px;
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
+<div id="timer" class="container">
     <h1>Countdown tot het vierde gerecht:</h1>
     <ul>
         <li><span id="days"></span>Dagen</li>
@@ -72,15 +87,31 @@
     </ul>
 </div>
 
+<div id="course" class="container">
+    <img src="https://media.giphy.com/media/l1Kuc4Whk5DKDPbTG/giphy.gif" alt="">
+    <h1>First prize goes to: "Tortellini!"</h1>
+    <p>Tijdens de de bijeenkomst in 2009 van ’s werelds bekendste sterrenchefs, kwam men na een unanieme stemming tot een conclusie die die bij Koen Derks al sinds zijn jeugd bekend was. Tortellini is de ’s werelds lekkerste maaltijd! Tortellini, oftwel het gele goud, gevuld met vlees of bijvoorbeeld  spinazi, wint de ‘lievelings-eten’-bokaal. Zowel in de categoriën gezond, lekker en aantal caloriën krijgt het gerecht de maximale score. Om deze reden zal ook tijdens het Derks familie diner deze klassieke maaltijd worden geserveerd. Een kleine portie, anders zou iedereen er zoveel van eten dat de rest van de chefs voor niks een maaltijd zou maken. Het wordt een heerlijke combinatie van vers pasta (sowieso natuurlijk velen malen lekkerder dan gedroogde), met spinazi, cherry tomaatjes en pijnboompitjes. Buon appetito!</p>
+    <p><i>Liefs, Koen</i></p>
+</div>
+
 </body>
 
 <script>
+
+    var dateString = 'Jul 19, 2020 19:00:00';
+
+    if(!!window.location.search || new Date() > new Date(dateString)){
+        document.querySelector('#timer').style.display = 'none';
+    }else{
+        document.querySelector('#course').style.display = 'none';
+    }
+
     const second = 1000,
         minute = second * 60,
         hour = minute * 60,
         day = hour * 24;
 
-    let countDown = new Date('Jul 19, 2020 19:30:00').getTime(),
+    let countDown = new Date(dateString).getTime(),
         x = setInterval(function() {
 
             let now = new Date().getTime(),
